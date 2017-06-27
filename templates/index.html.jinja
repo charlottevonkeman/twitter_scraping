@@ -1,0 +1,98 @@
+{% extends "twitter.html" %}
+{% block all %}
+<div class="page-header">
+	<h1><b>Twitter Feed, Hashtag and Follower Scraping</b><br>
+</div>
+
+<body> 
+	<p> Twitter scraping tool consists of 3 parts: 
+
+<br>	1. Twitter <b>handle</b> scraping, which scrapes all tweets and engagements from a twitter handle, including following information: 
+<br>twitter id, published time, text, retweet count, favorite count 
+<br>	2. Twitter <b>hashtag</b> scraping, which scrapes all tweets and users from a hashtag, including following information: 
+<br>screen name, tweet text, time zone
+<br>	3. Twitter <b>follower</b> scraping, which scrapes follower information from a twitter account, including following information: 
+<br>screen name, follower count, number of status updates, Location
+
+	<br>
+	<br>
+	<div class="row">
+		<div class="col-md-6">
+		<h2>Enter Twitter Handle</h2>
+			Please enter Twitter handle. Refer to this page for a full list of RNW accounts.
+			<br>
+			<br>		
+			<form action="tweets" method="POST" class="form-inline">
+				<label for="t_id">Twitter Handle</label>
+				<input type="text" class="form-control" name="t_id" placeholder="e.g. LoveMattersAfrica">
+			 	<button type="submit" class="btn btn-default">Submit</button>
+			</form>
+		</div>
+		<div class="col-md-6">
+		<h2>Get follower information</h2>
+			Please enter Twitter handle. Refer to this page for a full list of RNW accounts.
+			<br>
+			<br>		
+			<form action="tweets_follower" method="POST" class="form-inline">
+				<label for="t_id_follower">Twitter Handle</label>
+				<input type="text" class="form-control" name="t_id_follower" placeholder="e.g. LoveMattersAfrica">
+			 	<button type="submit" class="btn btn-default">Submit</button>
+			</form>
+		</div>
+	</div>
+	<br>
+	<br>
+	<div class="row">
+		<div class="col-md-6">
+		<h2>Enter Twitter Hashtag</h2>
+			Enter with # to get all tweets with this hashtag. 
+			<br>
+			<br>
+		<form action="hashtag" method="POST" class="form-inline">
+				<label for="hashtag">Start Date:</label>
+				<input type="text" class="form-control" name="hashtag" placeholder="#Football">
+			 	<button type="submit" class="btn btn-default">Submit</button>
+			</form>
+		</div>
+		<div class="col-md-6">
+		<h2>Select time period</h2>
+			Please enter a start date and end date for the analysis. 
+			<br>
+			<br>
+		<form action="processdate" method="POST" class="form-inline">
+				<label for="start">Start Date:</label>
+				<input type="text" class="form-control" name="start" placeholder="e.g. 2017-05-01"><br>
+				<label for="end">End Date:</label>
+				<input type="text" class="form-control" name="end" placeholder="e.g. 2017-05-10">
+			 	<button type="submit" class="btn btn-default">Submit</button>
+			</form>
+		</div>
+	</div>
+	<br><br>
+	<form action="kickoff">
+	<input type="submit" id="button" class="btn btn-primary" value="Get data & Analyze">
+	</form>
+	<br><br>
+	<table>
+			<tr>
+			    <th>Time of the Analysis</th>
+			    <th>Account Name</th>
+			    <th>Selected Period</th>
+			    <th>Data Overview</th>
+			 </tr>
+			<tr>
+			<td>
+				{{summary['time_of_analysis'][0]}}
+			</td>
+			<td> 
+				{{summary['t_id'][0] }}
+			</td>
+			<td>
+				{{summary['period_selected'][0]}}
+			</td>
+			<td>
+				<a href="/overview/{{ summary['t_id'][0] }}">Overview</a>
+			</td>
+			</tr> 
+</body>
+{% endblock %}

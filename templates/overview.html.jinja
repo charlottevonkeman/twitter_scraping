@@ -1,0 +1,108 @@
+{% extends "twitter.html" %}
+{% block all %}
+
+<div class="page-header">
+	<h3><b>Overview of Twitter Activity for {{summary['t_id'][0]}} during {{summary['period_selected'][0]}} </h3></b><br>
+</div>
+
+<body>
+
+<div class="row">
+	<div class="col-md-4">
+		<h3>Number of Statuses Published</h3>
+		<p><i> total number of Tweets published by {{summary['t_id'][0]}}</i></p>
+		<h2>{{summary['num_of_status'][0]}}</h2>
+	</div>
+	<div class="col-md-4">
+		<h3>Daily Engagement</h3>
+		<p><i>Average Like + Comments + Shares received every day</i></p>
+		<h3>{{summary['daily_engagement'][0]}}</h2>
+	</div>
+	<div class="col-md-4">
+<h3>Top 5 Superusers</h3>
+		<table>
+		<thead>
+			<th>User Name</th>
+			<th>Number of Followers</th>
+			<th>Number of Statuses</th>
+			<th>Location</th>
+		</thead>
+		<tbody>
+		<tr>
+			<td>
+			MdM_France
+			</td>
+			<td>
+			79224
+			</td>
+			<td>
+			8239
+			</td>
+			<td>
+			Paris
+			</td>
+		</tr>
+			<td>
+			YouBrandInc
+			</td>
+			<td>
+			33932
+			</td>
+			<td>
+			198674
+			</td>
+			<td>
+			Minneapolis
+			</td>
+		<tr>
+			<td>
+			kenyatalkforum
+			</td>
+			<td>
+			29598
+			</td>
+			<td>
+			9867
+			</td>
+			<td>
+			Kenya
+			</td>
+		</tr>
+		<tr>
+			<td>
+			Zed_shantall
+			</td>
+			<td>
+			9468
+			</td>
+			<td>
+			213554
+			</td>
+			<td>
+			Kenya
+			</td>
+		</tr>
+		<tr>
+			<td>
+			ItsFrankysertoi
+			</td>
+			<td>
+			7559
+			</td>
+			<td>
+			68326
+			</td>
+			<td>
+			 ELDAMA-RAVINE, KENYA
+			</td>
+		</tr>
+		</tbody>
+		</table>
+	</div>
+</div>
+
+<br><br>
+
+</body>
+
+{% endblock %}
